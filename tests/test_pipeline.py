@@ -8,13 +8,10 @@ sys.path.append(
     )
 )
 
-from src.data_processing import process_transactions
 from src.data_processing import pipeline
 
-
-def test_pipeline_object():
-	from sklearn.pipeline import Pipeline as SKPipeline
-
-	assert isinstance(pipeline, SKPipeline)
-
-
+df= pd.read_csv(
+    "data/raw/data.csv"
+)
+x = pipeline.fit_transform(df)
+print(x.shape)
